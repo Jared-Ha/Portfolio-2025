@@ -10,8 +10,18 @@ export default function ProjectCard({
 }) {
   return (
     <div className="bg-white rounded-xl shadow p-4 flex flex-col">
-      <img src={image} alt={title} className="rounded mb-4" />
-      <h3 className="text-xl font-semibold mb-1">{title}</h3>
+      <Link href={`/projects/${slug}`}>
+        <img
+          src={image}
+          alt={title}
+          className="rounded mb-4 hover:opacity-90 transition"
+        />
+      </Link>
+      <h3 className="text-xl font-semibold mb-1">
+        <Link href={`/projects/${slug}`} className="hover:underline">
+          {title}
+        </Link>
+      </h3>{" "}
       <p className="text-sm text-gray-600 mb-3">{description}</p>
       <div className="flex flex-wrap gap-2 mb-4">
         {tech.map((t) => (
