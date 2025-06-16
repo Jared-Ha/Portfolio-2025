@@ -1,33 +1,25 @@
+"use client";
+
 import projects from "@/data/projects";
 import techIcons from "@/data/techIcons";
-
-export async function generateStaticParams() {
-  return projects.map((project) => ({ slug: project.slug }));
-}
+import ProjectImageSlider from "@/app/components/ProjectImageSlider";
 
 export default function ProjectPage({ params }) {
   const project = projects.find((p) => p.slug === params.slug);
 
   if (!project) return <p>Project not found</p>;
 
+  const allImages = [project.mainImage, ...(project.gallery || [])];
+
   return (
-    <section className="py-12 max-w-4xl mx-auto">
+    <section className="py-12 max-w-4xl mx-auto px-4">
       <h1 className="text-4xl font-bold mb-4">{project.title}</h1>
       <p className="text-sm text-gray-500 mb-6">2 min read</p>
 
-      {/* Main Image */}
-      <img
-        src={project.mainImage}
-        alt={`${project.title} main visual`}
-        className="rounded mb-6 w-full"
-      />
+      {/* Image Slider */}
+      <ProjectImageSlider images={allImages} />
 
-      {/* Description */}
-      <p className="text-gray-700 mb-6 whitespace-pre-line">
-        {project.longDesc}
-      </p>
-
-      {/* Tech */}
+      {/* Tech Stack */}
       <div className="flex flex-wrap gap-2 mb-6">
         {project.tech.map((tech) => (
           <span
@@ -42,7 +34,12 @@ export default function ProjectPage({ params }) {
         ))}
       </div>
 
-      {/* Gallery */}
+      {/* Description */}
+      <p className="text-gray-700 mb-6 whitespace-pre-line">
+        {project.longDesc}
+      </p>
+
+      {/* Gallery (optional: if you still want static thumbs) */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
         {project.gallery.map((src, index) => (
           <img
@@ -61,6 +58,7 @@ export default function ProjectPage({ params }) {
             href={project.liveLink}
             className="text-blue-600 underline"
             target="_blank"
+            rel="noopener noreferrer"
           >
             Live Site
           </a>
@@ -70,6 +68,7 @@ export default function ProjectPage({ params }) {
             href={project.repoLink}
             className="text-blue-600 underline"
             target="_blank"
+            rel="noopener noreferrer"
           >
             GitHub Repo
           </a>

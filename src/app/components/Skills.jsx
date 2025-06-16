@@ -26,7 +26,9 @@ export default function Skills() {
   return (
     <section className="py-16">
       <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-8">Skills</h2>
+        <h2 className="text-5xl font-bold text-center mb-16">
+          My Tech Stack and Skills
+        </h2>
         <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 gap-12">
           {tech.map((item) => (
             <div
