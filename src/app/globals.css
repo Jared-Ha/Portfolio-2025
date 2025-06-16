@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -26,4 +30,8 @@ body {
 
 :root {
   font-family: var(--font-poppins), sans-serif;
+}
+
+.nav-link {
+  @apply hover:text-gray-400 transition-colors duration-300;
 }
