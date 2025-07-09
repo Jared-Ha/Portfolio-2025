@@ -18,8 +18,6 @@ export default function ProjectPage({ params: paramsPromise }) {
     ...(project.media ?? project.gallery ?? []),
   ];
 
-  console.log(allMedia, "<--- all media");
-
   return (
     <section className="py-12 max-w-4xl mx-auto">
       <div className="max-w-4xl mx-auto">
@@ -50,7 +48,7 @@ export default function ProjectPage({ params: paramsPromise }) {
         </p>
 
         {/* Gallery */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+        {/* <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
           {project.gallery.map((src, index) => (
             <img
               key={index}
@@ -59,9 +57,9 @@ export default function ProjectPage({ params: paramsPromise }) {
               className="rounded"
             />
           ))}
-        </div>
+        </div> */}
 
-        {/* Links */}
+        {/* Links - need to add github too (FE / BE for NC news and for Wildsight) */}
         <div className="mt-6 flex gap-4">
           {project.liveLink && (
             <a

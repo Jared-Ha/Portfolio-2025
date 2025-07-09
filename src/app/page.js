@@ -3,10 +3,10 @@ import ProjectsPreview from "./components/ProjectsPreview";
 
 export default function Home() {
   return (
-    <main>
+    <>
+      {/* Hero Section */}
       <section className="pt-16 pb-16 md:pt-60 md:pb-30 bg-white">
-        {" "}
-        <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center gap-12">
+        <div className="flex flex-col md:flex-row items-center gap-12">
           {/* Left: Text */}
           <div className="flex-1 text-center md:text-left">
             <h1 className="text-6xl font-bold mb-2">
@@ -15,7 +15,7 @@ export default function Home() {
             </h1>
             <p className="text-lg text-gray-700 mt-2 py-6">
               I’m a full-stack developer who builds clean, performant apps using
-              React, Node.js, and JavaScript.{" "}
+              React, Node.js, and JavaScript.
             </p>
           </div>
 
@@ -33,6 +33,6 @@ export default function Home() {
       <Skills />
 
       <ProjectsPreview />
-    </main>
+    </>
   );
 }
