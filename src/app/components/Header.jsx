@@ -48,7 +48,7 @@ export default function Header() {
                   href={href}
                   className={`transition ${
                     pathname === href
-                      ? "font-bold text-white border-b-2 border-white pb-1"
+                      ? "text-white border-b-1 border-white pb-1"
                       : "text-gray-300 hover:text-white"
                   }`}
                 >
