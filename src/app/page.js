@@ -15,7 +15,9 @@ export default function Home() {
             </h1>
             <p className="text-lg text-gray-700 mt-2 py-6">
               I’m a full-stack developer who builds clean, performant apps using
-              React, Node.js, and JavaScript.
+              React, Node.js, JavaScript, PHP, and more. I love creating
+              intuitive user experiences and writing efficient, maintainable
+              code.
             </p>
           </div>
 

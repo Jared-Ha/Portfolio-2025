@@ -1,7 +1,7 @@
 const projects = [
   {
     slug: "tailored-tutors",
-    title: "Tailored Tutors Site Rebuild",
+    title: "Tailored Tutors Full Site Rebuild",
     shortDesc:
       "Commercial rebuild of an EdTech site using custom WordPress theme.",
     longDesc: `Rebuilt a production site using a custom WordPress theme (HTML, CSS, JS, PHP). Translated Figma designs into responsive, accessible pages. Implemented SEO and conversion-focused practices. Worked closely with UX, content, and marketing teams.`,
@@ -28,15 +28,15 @@ const projects = [
 Connected a custom REST API with Node.js, Express, and PostgreSQL. Integrated 
 PlantNet and iNaturalist APIs for AI-powered identification. Built heatmaps 
 with Google Maps. Delivered via Scrum using TDD.`,
-    mainImage: "/images/projects/WildSight-project-presentation.mp4",
+    mainImage: "/images/projects/Wildsight-mobile-home.png",
     gallery: [
-      "/images/projects/Wildsight-mobile-home.png",
       "/images/projects/Wildsight-mobile-heatmap.png",
       "/images/projects/Wildsight-mobile-camera.png",
       "/images/projects/Wildsight-mobile-ai-identification.png",
       "/images/projects/Wildsight-mobile-user-sightings-mywildlife.png",
       "/images/projects/Wildsight-mobile-individual-marker.png",
       "/images/projects/Wildsight-mobile-inaturalist-sighting.png",
+      "/images/projects/WildSight-project-presentation.mp4",
     ],
     tech: [
       "React Native",

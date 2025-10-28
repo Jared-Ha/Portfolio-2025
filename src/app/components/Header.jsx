@@ -38,8 +38,8 @@ export default function Header() {
               </a>
             </li>
             <li>
-              <a href="/projects" className="nav-link">
-                Projects
+              <a href="/portfolio" className="nav-link">
+                Portfolio
               </a>
             </li>
             <li>
@@ -68,7 +68,7 @@ export default function Header() {
             <a href="/">Home</a>
           </li>
           <li>
-            <a href="/projects">Projects</a>
+            <a href="/portfolio">Portfolio</a>
           </li>
           <li>
             <a href="/about">About</a>

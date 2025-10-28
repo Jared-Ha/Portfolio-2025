@@ -14,6 +14,7 @@ export default function Skills() {
     { name: "Tailwind CSS", icon: "/icons/tailwind-css.svg" },
     { name: "Bootstrap", icon: "/icons/bootstrap.svg" },
     { name: "GitHub", icon: "/icons/github.svg" },
+    // Jest, Agile?,
     // { name: "NPM", icon: "/icons/npm.svg" },
     // { name: "Supabase", icon: "/icons/supabase.svg" },
     // { name: "Figma", icon: "/icons/figma.svg" },
@@ -24,9 +25,9 @@ export default function Skills() {
   ];
 
   return (
-    <section className="py-16">
-      <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-5xl font-bold text-center mb-16">
+    <section className="py-4 md:py-8 lg:py-16 -mx-4 bg-white">
+      <div className="max-w-6xl mx-auto">
+        <h2 className="text-4xl font-bold text-center mb-16">
           My Tech Stack and Skills
         </h2>
         <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 gap-12">
