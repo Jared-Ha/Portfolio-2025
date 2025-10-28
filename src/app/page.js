@@ -24,7 +24,7 @@ export default function Home() {
           {/* Right: Photo */}
           <div className="flex-shrink-0">
             <img
-              src="/images/jared.jpg"
+              src="/images/jared.webp"
               alt="Jared Harrison"
               className="w-80 h-auto rounded-full object-cover shadow-md"
             />
