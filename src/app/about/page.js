@@ -15,7 +15,7 @@ export default function About() {
   ];
 
   return (
-    <section className="max-w-5xl mx-auto px-6 py-20 space-y-24">
+    <section className="max-w-5xl mx-auto py-20 space-y-24">
       {/* 1. Intro / Story */}
       <div className="flex flex-col md:flex-row items-center gap-10">
         <img
@@ -124,7 +124,7 @@ export default function About() {
       </div>
 
       {/* 5. Beyond Code */}
-      <div className="bg-gray-50 p-8 rounded-2xl">
+      <div className="bg-gray-50 pt-8 pb-8 pr-3 pl-3 rounded-2xl">
         <h2 className="text-3xl font-semibold mb-6">Beyond Code</h2>
         <p className="text-gray-700 leading-relaxed">
           When I’m not coding, I’m usually exploring Cornwall’s coasts with my
