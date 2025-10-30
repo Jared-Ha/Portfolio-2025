@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Github, Linkedin, Facebook } from "lucide-react";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -24,23 +25,28 @@ export default function Header() {
     { href: "/contact", label: "Contact" },
   ];
 
+  const socialLinks = [
+    { href: "https://github.com/Jared-Ha", icon: <Github size={20} /> },
+    {
+      href: "https://www.linkedin.com/in/jaredharrison7/",
+      icon: <Linkedin size={20} />,
+    },
+    {
+      href: "https://www.facebook.com/",
+      icon: <Facebook size={20} />,
+    },
+  ];
+
   return (
     <header className="bg-black text-white p-6">
       <div className="relative max-w-7xl mx-auto">
         <nav className="flex justify-between items-center">
+          {/* Left: Name */}
           <h1 className="text-xl font-semibold">
             <Link href="/">Jared Harrison</Link>
           </h1>
 
-          {/* Mobile menu button */}
-          <button
-            className="md:hidden text-3xl transition-transform duration-200"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          >
-            {mobileMenuOpen ? "✕" : "☰"}
-          </button>
-
-          {/* Desktop links */}
+          {/* Center: Desktop Nav Links */}
           <ul className="hidden md:flex gap-10 text-md">
             {links.map(({ href, label }) => (
               <li key={href}>
@@ -48,7 +54,7 @@ export default function Header() {
                   href={href}
                   className={`transition ${
                     pathname === href
-                      ? "text-white border-b-1 border-white pb-1"
+                      ? "text-white border-b-2 border-white pb-1"
                       : "text-gray-300 hover:text-white"
                   }`}
                 >
@@ -57,9 +63,32 @@ export default function Header() {
               </li>
             ))}
           </ul>
+
+          {/* Right: Social Icons */}
+          <div className="hidden md:flex items-center gap-5">
+            {socialLinks.map(({ href, icon }) => (
+              <a
+                key={href}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-300 hover:text-white transition-transform transform hover:scale-110"
+              >
+                {icon}
+              </a>
+            ))}
+          </div>
+
+          {/* Mobile menu button */}
+          <button
+            className="md:hidden text-3xl transition-transform duration-200"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            {mobileMenuOpen ? "✕" : "☰"}
+          </button>
         </nav>
 
-        {/* Mobile menu (always mounted) */}
+        {/* Mobile dropdown menu (always mounted) */}
         <ul
           className={`fixed top-20 right-0 h-full w-full bg-black px-6 py-10 space-y-6 text-md shadow-lg z-50 transition-transform duration-300 transform ${
             mobileMenuOpen
@@ -80,6 +109,21 @@ export default function Header() {
               </Link>
             </li>
           ))}
+
+          {/* Mobile social icons */}
+          <div className="flex gap-6 pt-6">
+            {socialLinks.map(({ href, icon }) => (
+              <a
+                key={href}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-300 hover:text-white transition-transform transform hover:scale-110"
+              >
+                {icon}
+              </a>
+            ))}
+          </div>
         </ul>
       </div>
     </header>
