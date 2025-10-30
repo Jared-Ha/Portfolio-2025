@@ -22,7 +22,7 @@ export default function ProjectPage({ params: paramsPromise }) {
     <section className="py-12 max-w-4xl mx-auto">
       <div className="max-w-4xl mx-auto">
         <h1 className="text-4xl font-bold mb-4">{project.title}</h1>
-        <p className="text-sm text-gray-500 mb-6">2 min read</p>
+        <p className="text-sm text-gray-500 mb-6">1 min read</p>
 
         {/* Image Slider */}
         <ProjectMediaSlider media={allMedia} />
