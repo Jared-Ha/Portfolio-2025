@@ -2,6 +2,7 @@ import "./globals.css";
 import { Poppins } from "next/font/google";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import FadeInWrapper from "./components/FadeInWrapper";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -20,7 +21,7 @@ export default function RootLayout({ children }) {
       <body className="bg-white text-gray-900">
         <Header />
         <main className="mx-auto max-w-7xl px-6 md:px-16 lg:px-40">
-          {children}
+          <FadeInWrapper>{children}</FadeInWrapper>
         </main>
         <Footer />
       </body>

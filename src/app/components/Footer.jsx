@@ -20,7 +20,7 @@ export default function Footer() {
       {showScrollTop && (
         <button
           onClick={scrollToTop}
-          className="absolute left-1/2 -top-4 transform -translate-x-1/2 bg-white border border-gray-200 rounded-full p-2 shadow-sm hover:shadow-md transition"
+          className="absolute left-1/2 -top-4 transform -translate-x-1/2 bg-white border border-gray-200 rounded-full p-2 shadow-sm hover:shadow-md transition cursor-pointer hover:scale-140"
           aria-label="Scroll to top"
         >
           <svg
