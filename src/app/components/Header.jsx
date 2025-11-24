@@ -26,15 +26,9 @@ export default function Header() {
   ];
 
   const socialLinks = [
-    { href: "https://github.com/Jared-Ha", icon: <Github size={20} /> },
-    {
-      href: "https://www.linkedin.com/in/jaredharrison7/",
-      icon: <Linkedin size={20} />,
-    },
-    {
-      href: "https://www.facebook.com/",
-      icon: <Facebook size={20} />,
-    },
+    { href: "https://github.com/Jared-Ha", Icon: Github },
+    { href: "https://www.linkedin.com/in/jaredharrison7/", Icon: Linkedin },
+    { href: "https://www.facebook.com/", Icon: Facebook },
   ];
 
   return (
@@ -42,7 +36,16 @@ export default function Header() {
       <div className="relative max-w-7xl mx-auto">
         <nav className="flex justify-between items-center">
           {/* Left: Name */}
-          <h1 className="text-xl font-semibold">
+          <h1
+            className="
+      transition-all
+      duration-200
+      text-white
+      hover:text-gray-300
+      inline-block
+      text-xl font-semibold 
+    "
+          >
             <Link href="/">Jared Harrison</Link>
           </h1>
 
@@ -65,16 +68,22 @@ export default function Header() {
           </ul>
 
           {/* Right: Social Icons */}
-          <div className="hidden md:flex items-center gap-5">
-            {socialLinks.map(({ href, icon }) => (
+          <div className="hidden md:flex items-center gap-4">
+            {socialLinks.map(({ href, Icon }) => (
               <a
                 key={href}
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-300 hover:text-white transition-transform transform hover:scale-110"
+                className="
+        text-gray-300 hover:text-white
+        p-2 rounded-md
+        transition-all
+        hover:bg-white/10
+        hover:scale-110
+      "
               >
-                {icon}
+                <Icon size={24} />
               </a>
             ))}
           </div>
