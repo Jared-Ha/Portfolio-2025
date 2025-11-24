@@ -70,8 +70,8 @@ export default function Contact() {
         <div className="relative w-full overflow-hidden rounded-2xl shadow-md">
           {/* Replace with your preferred image path */}
           <Image
-            src="/images/jared-dog-2.jpg"
-            alt="Jared on the coast"
+            src="/images/jared.webp"
+            alt="Jared Harrison"
             width={1200}
             height={900}
             className="w-full h-[260px] sm:h-[320px] md:h-[360px] lg:h-[420px] object-cover"
@@ -146,7 +146,7 @@ export default function Contact() {
             </p>
           )}
 
-          <div className="flex items-center justify-between gap-4">
+          <div className="flex items-center justify-between gap-4 flex-col sm:flex-row">
             <p className="text-sm text-gray-500">
               Or email me directly at{" "}
               <a

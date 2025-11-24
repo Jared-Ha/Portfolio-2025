@@ -121,15 +121,21 @@ export default function Header() {
 
           {/* Mobile social icons */}
           <div className="flex gap-6 pt-6">
-            {socialLinks.map(({ href, icon }) => (
+            {socialLinks.map(({ href, Icon }) => (
               <a
                 key={href}
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-300 hover:text-white transition-transform transform hover:scale-110"
+                className="
+        text-gray-300 hover:text-white
+        p-2 rounded-md
+        transition-all
+        hover:bg-white/10
+        hover:scale-110
+      "
               >
-                {icon}
+                <Icon size={24} />
               </a>
             ))}
           </div>
