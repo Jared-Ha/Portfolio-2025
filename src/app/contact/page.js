@@ -21,7 +21,7 @@ export default function Contact() {
   const success = searchParams.get("success") === "true";
 
   return (
-    <section className="max-w-6xl mx-auto px-6 py-16 space-y-14">
+    <section className="max-w-6xl mx-auto px-0 sm:px-4 md:px-6 py-16 space-y-14">
       {/* Top hero: text + socials left, photo right */}
       <div className="grid md:grid-cols-2 gap-10 md:gap-12 items-center">
         <div>
@@ -33,7 +33,17 @@ export default function Contact() {
             to talk about projects, collaboration, or anything dev-related.
           </p>
 
-          <ul className="flex flex-wrap gap-5">
+          <ul
+            className="
+  grid 
+  grid-cols-2 
+  gap-x-10 gap-y-6 
+  sm:grid-cols-2 
+  md:grid-cols-2 
+  lg:grid-cols-2
+"
+          >
+            {" "}
             {socialLinks.map(({ href, label, icon: Icon }) => (
               <li key={label}>
                 <Link
