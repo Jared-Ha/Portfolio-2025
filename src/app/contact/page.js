@@ -96,7 +96,8 @@ export default function Contact() {
           <input type="hidden" name="form-name" value="contact" />
           <p className="hidden">
             <label>
-              Don’t fill this out if you’re human: <input name="bot-field" />
+              Don&apos;t fill this out if you&apos;re human:{" "}
+              <input name="bot-field" />
             </label>
           </p>
 
@@ -142,7 +143,7 @@ export default function Contact() {
           </div>
           {success && (
             <p className="text-green-600 text-sm mt-2">
-              Thanks! Your message has been sent. I'll reply within 24h.
+              Thanks! Your message has been sent. I&apos;ll reply within 24h.
             </p>
           )}
 
