@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function About() {
   const topTech = [
@@ -17,11 +18,14 @@ export default function About() {
   return (
     <section className="max-w-5xl mx-auto py-20 space-y-24">
       {/* 1. Intro / Story */}
-      <div className="flex flex-col md:flex-row items-center gap-10">
-        <img
+      <div className="flex flex-col sm:flex-row md:flex-row items-center gap-10">
+        <Image
           src="/images/jared-dog-2.jpg"
           alt="Jared with his dog"
-          className="sm:w-48 md:w-56 lg:w-64 aspect-square rounded-2xl object-cover shadow-md"
+          width={384}
+          height={576}
+          priority
+          className="sm:w-56 md:w-56 lg:w-64 h-auto rounded-2xl shadow-md"
         />
 
         <div>
