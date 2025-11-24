@@ -1,11 +1,20 @@
 "use client";
 
+import { Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Github, Linkedin, Facebook, Mail } from "lucide-react";
 import { useSearchParams } from "next/navigation";
 
-export default function Contact() {
+export default function ContactPage() {
+  return (
+    <Suspense fallback={null}>
+      <ContactContent />
+    </Suspense>
+  );
+}
+
+function ContactContent() {
   const socialLinks = [
     { href: "https://github.com/Jared-Ha", label: "GitHub", icon: Github },
     {
@@ -29,21 +38,12 @@ export default function Contact() {
             Contact
           </h1>
           <p className="text-gray-600 mb-8">
-            Get in touch via social media or send me an email. I’m always happy
-            to talk about projects, collaboration, or anything dev-related.
+            Get in touch via social media or send me an email. I&apos;m always
+            happy to talk about projects, collaboration, or anything
+            dev-related.
           </p>
 
-          <ul
-            className="
-  grid 
-  grid-cols-2 
-  gap-x-10 gap-y-6 
-  sm:grid-cols-2 
-  md:grid-cols-2 
-  lg:grid-cols-2
-"
-          >
-            {" "}
+          <ul className="grid grid-cols-2 gap-x-10 gap-y-6 sm:grid-cols-2">
             {socialLinks.map(({ href, label, icon: Icon }) => (
               <li key={label}>
                 <Link
@@ -66,9 +66,8 @@ export default function Contact() {
           </ul>
         </div>
 
-        {/* Photo: use any landscape or portrait image you like */}
+        {/* Photo */}
         <div className="relative w-full overflow-hidden rounded-2xl shadow-md">
-          {/* Replace with your preferred image path */}
           <Image
             src="/images/jared.webp"
             alt="Jared Harrison"
@@ -141,13 +140,14 @@ export default function Contact() {
               placeholder="Tell me a little about your project…"
             />
           </div>
+
           {success && (
             <p className="text-green-600 text-sm mt-2">
               Thanks! Your message has been sent. I&apos;ll reply within 24h.
             </p>
           )}
 
-          <div className="flex items-center justify-between gap-4 flex-col sm:flex-row">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mt-4">
             <p className="text-sm text-gray-500">
               Or email me directly at{" "}
               <a
@@ -160,8 +160,7 @@ export default function Contact() {
             </p>
             <button
               type="submit"
-              className="ml-auto inline-flex items-center justify-center rounded-lg bg-black text-white px-6 py-3 font-medium
-             hover:bg-gray-800 active:bg-gray-900 transition cursor-pointer"
+              className="w-full sm:w-auto inline-flex items-center justify-center rounded-lg bg-black text-white px-6 py-3 font-medium hover:bg-gray-800 active:bg-gray-900 transition cursor-pointer"
             >
               Send email
             </button>
