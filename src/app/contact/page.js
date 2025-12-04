@@ -41,6 +41,8 @@ function ContactContent() {
         body: new URLSearchParams(formData).toString(),
       });
 
+      await new Promise((resolve) => setTimeout(resolve, 500));
+
       setIsSubmitting(false);
       setSuccess(true);
       form.reset();
@@ -163,18 +165,18 @@ function ContactContent() {
             />
           </div>
 
-          {success && (
-            <p className="text-green-600 text-sm mt-2">
-              Thanks. Your message has been sent. I&apos;ll reply within 24h.
-            </p>
-          )}
-
-          {error && (
-            <p className="text-red-600 text-sm mt-2">
-              Something went wrong sending your message. Please try again or
-              email me directly.
-            </p>
-          )}
+          <div className="-mt-2 mb-1 h-3">
+            {success && (
+              <p className="text-green-600 text-sm animate-fade-in">
+                Thanks. Your message has been sent. I&apos;ll reply within 24h.
+              </p>
+            )}
+            {error && (
+              <p className="text-red-600 text-sm animate-fade-in">
+                Something went wrong sending your message. Please try again.
+              </p>
+            )}
+          </div>
 
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mt-4">
             <p className="text-sm text-gray-500">
