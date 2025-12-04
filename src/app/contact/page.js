@@ -1,20 +1,19 @@
 "use client";
 
-import { Suspense } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Github, Linkedin, Facebook, Mail } from "lucide-react";
-import { useSearchParams } from "next/navigation";
 
 export default function ContactPage() {
-  return (
-    <Suspense fallback={null}>
-      <ContactContent />
-    </Suspense>
-  );
+  return <ContactContent />;
 }
 
 function ContactContent() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState(false);
+
   const socialLinks = [
     { href: "https://github.com/Jared-Ha", label: "GitHub", icon: Github },
     {
@@ -26,8 +25,31 @@ function ContactContent() {
     { href: "mailto:jared.harrison7@gmail.com", label: "Email", icon: Mail },
   ];
 
-  const searchParams = useSearchParams();
-  const success = searchParams.get("success") === "true";
+  async function handleSubmit(e) {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSuccess(false);
+    setError(false);
+
+    const form = e.target;
+    const formData = new FormData(form);
+
+    try {
+      await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData).toString(),
+      });
+
+      setIsSubmitting(false);
+      setSuccess(true);
+      form.reset();
+    } catch (err) {
+      console.error(err);
+      setIsSubmitting(false);
+      setError(true);
+    }
+  }
 
   return (
     <section className="max-w-6xl mx-auto px-0 sm:px-4 md:px-6 py-16 space-y-14">
@@ -88,7 +110,7 @@ function ContactContent() {
           method="POST"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
-          action="/contact?success=true"
+          onSubmit={handleSubmit}
           className="grid gap-6"
         >
           {/* Required hidden fields for Netlify */}
@@ -143,7 +165,14 @@ function ContactContent() {
 
           {success && (
             <p className="text-green-600 text-sm mt-2">
-              Thanks! Your message has been sent. I&apos;ll reply within 24h.
+              Thanks. Your message has been sent. I&apos;ll reply within 24h.
+            </p>
+          )}
+
+          {error && (
+            <p className="text-red-600 text-sm mt-2">
+              Something went wrong sending your message. Please try again or
+              email me directly.
             </p>
           )}
 
@@ -160,9 +189,18 @@ function ContactContent() {
             </p>
             <button
               type="submit"
-              className="w-full sm:w-auto inline-flex items-center justify-center rounded-lg bg-black text-white px-6 py-3 font-medium hover:bg-gray-800 active:bg-gray-900 transition cursor-pointer"
+              disabled={isSubmitting}
+              className={`w-full sm:w-auto inline-flex items-center justify-center rounded-lg px-6 py-3 font-medium transition
+                ${
+                  isSubmitting
+                    ? "bg-gray-500 text-gray-200 cursor-not-allowed"
+                    : "bg-black text-white hover:bg-gray-800 active:bg-gray-900 cursor-pointer"
+                }`}
             >
-              Send email
+              {isSubmitting && (
+                <span className="mr-2 inline-block h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" />
+              )}
+              {isSubmitting ? "Sending..." : "Send email"}
             </button>
           </div>
         </form>
